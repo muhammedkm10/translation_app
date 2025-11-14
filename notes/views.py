@@ -44,7 +44,7 @@ class TraslateNote(APIView):
                 return Response({'message':"server error occured","details":serializer.errors},status=status.HTTP_400_BAD_REQUEST)
             serializer.save()
             
-            return Response({"message":"translated succesfully","result":response["result"]},status = status.HTTP_200_OK)
+            return Response({"message":"translated succesfully","result": {"transalted_text":response["result"],"original_text":note.original_text }},status = status.HTTP_200_OK)
         except Exception as e:
             return Response({'message':"server error occured","details":str(e)},status=status.HTTP_400_BAD_REQUEST)
     
