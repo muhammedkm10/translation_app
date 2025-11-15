@@ -55,3 +55,22 @@ Install Docker & Docker Compose
 Pull your Docker image from Docker Hub or build it on EC2
 Run docker compose up -d
 Configure security group to allow port 8000 (or 80 if using Nginx)
+
+
+---
+## Design Decisions
+
+PostgreSQL: Reliable relational database, works seamlessly with Django ORM
+JWT: Stateless authentication suitable for APIs and clients
+Docker: Simplifies setup and ensures consistent environment across systems
+
+Known Limitations / Next Steps
+
+No rate-limiting on translation API
+No user roles implemented yet
+
+
+Next steps:
+
+Add unit & integration tests
+
