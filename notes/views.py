@@ -8,18 +8,24 @@ from rest_framework.response import Response
 from .utility import translate_text_sync
 from django.db.models import Count
 from .caching_utility import increase_popularity,redis_client
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
-
-# note api
 class NoteViewSet(ModelViewSet):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
     
     
   
 
 # trasaltion api
 class TraslateNote(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+    
+    
     def post(self,request,note_id):
         try:
             note = Note.objects.get(id= note_id)
@@ -51,6 +57,10 @@ class TraslateNote(APIView):
 
 # statics api
 class StatiticsApi(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+    
+    
     def get(self, request):
         try:
             # Total Notes
