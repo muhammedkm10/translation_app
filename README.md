@@ -12,6 +12,31 @@ AI_NOTE_TRANSLATOR is a Django-based web application for managing notes, transla
 - **Containerization:** Docker
 
 ---
+---
+
+##  Design Decisions
+- **PostgreSQL:**  Reliable relational database, works seamlessly with Django ORM
+- **JWT:** Stateless authentication suitable for APIs and clients
+- **Docker:** Simplifies setup and ensures consistent environment across systems
+
+---
+
+---
+
+##  Known Limitations / Next Steps
+- No rate-limiting on translation API
+- No user roles implemented yet
+
+---
+---
+
+##  Next steps:
+- Add unit & integration tests
+
+---
+
+
+
 
 ## Setup Instructions
 
@@ -39,7 +64,7 @@ pip install -r requirements.txt
 5.Start the server:
 python manage.py runserver
 
-###  Using Docker
+Using Docker
 
 1. Build the image:
 docker build -t ai-notes .
@@ -57,20 +82,7 @@ Run docker compose up -d
 Configure security group to allow port 8000 (or 80 if using Nginx)
 
 
----
-## Design Decisions
-
-PostgreSQL: Reliable relational database, works seamlessly with Django ORM
-JWT: Stateless authentication suitable for APIs and clients
-Docker: Simplifies setup and ensures consistent environment across systems
-
-Known Limitations / Next Steps
-
-No rate-limiting on translation API
-No user roles implemented yet
 
 
-Next steps:
 
-Add unit & integration tests
 
