@@ -42,6 +42,7 @@ link : https://inventory-1173.postman.co/workspace/inventory-Workspace~b0df5fb5-
 
 ### High-Level Design (HLD)
 LINK : https://app.diagrams.net/#G12jNZMZoT_zO9Oto5s1UyuR270ohUuW6y#%7B%22pageId%22%3A%22FhFMXiOWkhA7z9hHYa80%22%7D
+link  :https://drive.google.com/file/d/1CToM4AOp4tr5FEl4QAnA9vdstjcgxM6e/view?usp=drive_link
 
 - **Backend**: Django + DRF
 - **Database**: PostgreSQL
@@ -51,6 +52,7 @@ LINK : https://app.diagrams.net/#G12jNZMZoT_zO9Oto5s1UyuR270ohUuW6y#%7B%22pageId
 
 ### Low-Level Design (LLD)
 LINK : https://app.diagrams.net/#G1qf9q7xcDoRk7rtCmePVWWgT4P1yTrRrD#%7B%22pageId%22%3A%22UtLC6lcEu0-bIKd4OWEP%22%7D
+link : https://drive.google.com/file/d/1d6PlVa2wyV7S92O1CMYLb7pn1zIiep1x/view?usp=drive_link
 
 - **Models**:
   - Note: id, title, original_text, original_language
