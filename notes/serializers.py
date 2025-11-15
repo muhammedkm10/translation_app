@@ -2,13 +2,16 @@ from rest_framework import serializers
 from .models import Note,Translation
 
 
-class NoteSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Note
-        fields = '__all__'
-        
+
         
 class TranslatorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Translation
         fields = '__all__'
+        
+class NoteSerializer(serializers.ModelSerializer):
+    translations = TranslatorSerializer(many = True,read_only = True)
+    class Meta:
+        model = Note
+        fields = ['title','original_text','original_language','created_at','translations']
+        
