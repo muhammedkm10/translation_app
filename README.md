@@ -3,6 +3,9 @@
 ## Project Overview
 AI_NOTE_TRANSLATOR is a Django-based web application for managing notes, translating them into multiple languages, and viewing translation statistics. JWT-based authentication secures API access.
 
+
+## Api documentation
+link : https://inventory-1173.postman.co/workspace/inventory-Workspace~b0df5fb5-1253-465e-82f6-be6967628eeb/request/35166923-4397f9c1-8590-4e2c-b399-1705332e88ae?action=share&creator=35166923&active-environment=35166923-398c3e2e-419a-46a7-b3e7-668d06c199ac
 ---
 
 ## Tech Stack
