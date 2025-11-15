@@ -13,5 +13,5 @@ class NoteSerializer(serializers.ModelSerializer):
     translations = TranslatorSerializer(many = True,read_only = True)
     class Meta:
         model = Note
-        fields = ['title','original_text','original_language','created_at','translations']
+        fields = ['id','title','original_text','original_language','created_at','translations']
         

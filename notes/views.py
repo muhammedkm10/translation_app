@@ -7,8 +7,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from .utility import translate_text_sync
 from django.db.models import Count
-from .caching_utility import increase_popularity
-from django.core.cache import cache
+from .caching_utility import increase_popularity,redis_client
 
 
 # note api
@@ -30,7 +29,6 @@ class TraslateNote(APIView):
             already_exist  = Translation.objects.filter(note = note,translated_language = target_lan).exists()
             if already_exist:
                 return Response({"message":"server error","details":"this note is already translated"},status = status.HTTP_400_BAD_REQUEST )
-            increase_popularity(note_id = note_id)
             response = translate_text_sync(note.original_text,note.original_language,target_lan)
             if not response["status"]:
                 return Response({"message":"server error","details":str(response["result"])},status=status.HTTP_400_BAD_REQUEST)
@@ -43,6 +41,7 @@ class TraslateNote(APIView):
             if not  serializer.is_valid():
                 return Response({'message':"server error occured","details":serializer.errors},status=status.HTTP_400_BAD_REQUEST)
             serializer.save()
+            increase_popularity(note_id = note_id)
             return Response({"message":"translated succesfully","result": {"transalted_text":response["result"],"original_text":note.original_text }},status = status.HTTP_200_OK)
         except Exception as e:
             return Response({'message':"server error occured","details":str(e)},status=status.HTTP_400_BAD_REQUEST)
@@ -105,7 +104,6 @@ class StatiticsApi(APIView):
 
 class PopularNotes(APIView):
     def get(self, request):
-        redis_client = cache.client.get_client()
         popular = redis_client.zrevrange("popular_notes", 0, 9, withscores=True)
         results = []
         for note_id, score in popular:
