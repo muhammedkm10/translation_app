@@ -2,7 +2,7 @@ django-cors-headers==4.6.0
 django-redis==6.0.0
 
 # Database
-psycopg2==2.9.10
+psycopg2-binary==2.9.10
 
 # Caching
 redis==7.0.1
@@ -33,7 +33,6 @@ asgiref==3.10.0
 dj-database-url==3.0.1
 Django==5.2.8
 djangorestframework==3.16.1
-psycopg2-binary==2.9.11
 sqlparse==0.5.3
 tzdata==2025.2
 

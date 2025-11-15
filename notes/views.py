@@ -77,7 +77,6 @@ class StatiticsApi(APIView):
                 .annotate(count=Count("id"))
                 .order_by()
             )
-            print(translations_by_language_qs)
 
             translations_by_language = {
                 item["translated_language"]: item["count"]
